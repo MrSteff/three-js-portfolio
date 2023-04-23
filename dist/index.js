@@ -1,7 +1,7 @@
 import '/style.css'
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 import { AmbientLight, Material } from 'https://unpkg.com/three/build/three.module.js';
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
+//import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
 const scene = new THREE.Scene();
 
@@ -65,7 +65,7 @@ planet.rotation.z = 41;
 
 // scene.add(planet);
 
-const controls = new OrbitControls(camera, renderer.domElement);
+//const controls = new OrbitControls(camera, renderer.domElement);
 
 function moveCamera() {
    const t = document.body.getBoundingClientRect().top;

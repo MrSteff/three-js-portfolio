@@ -93,7 +93,7 @@ orbit.add(torus);
 orbit.add(camera);
 scene.add(orbit);
 
-document.body.onscroll= moveCamera;
+//document.body.onscroll= moveCamera;
 
 function animate(){
   requestAnimationFrame(animate);

@@ -1,6 +1,6 @@
 import '/style.css'
-import * as THREE from 'three';
-import { AmbientLight, Material } from 'three';
+import * as THREE from 'https://unpkg.com/three/build/three.module.js';
+import { AmbientLight, Material } from 'https://unpkg.com/three/build/three.module.js';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
 const scene = new THREE.Scene();
@@ -81,15 +81,15 @@ dodecahedronMaterial.wireframe = false;
 
 
 const dodecahedron = new THREE.Mesh(dodecahedronGeometry, dodecahedronMaterial);
-//const geometry = new THREE.TorusGeometry(10,3,16,100);
-//const torus = new THREE.Mesh(geometry, material);
+const geometry = new THREE.TorusGeometry(10,3,16,100);
+const torus = new THREE.Mesh(geometry, material);
 
 var orbit = new THREE.Group();
 orbit.add(planet);
 dodecahedron.rotation.z = 1;
 
 
-orbit.add(dodecahedron);
+orbit.add(torus);
 orbit.add(camera);
 scene.add(orbit);
 
@@ -98,11 +98,11 @@ document.body.onscroll= moveCamera;
 function animate(){
   requestAnimationFrame(animate);
 
-  /*
+  
   torus.rotation.x += 0.01;
   torus.rotation.y += 0.005;
   torus.rotation.z += 0.01;
-  */
+  
 
   orbit.rotation.y += 0.005;
 

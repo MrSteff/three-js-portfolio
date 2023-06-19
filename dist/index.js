@@ -1,7 +1,7 @@
-import '/style.css'
-import * as THREE from 'https://unpkg.com/three/build/three.module.js';
-import { AmbientLight, Material } from 'https://unpkg.com/three/build/three.module.js';
-//import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
+import './style.css'
+import * as THREE from 'three';
+import { AmbientLight, Material } from 'three';
+// import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
 const scene = new THREE.Scene();
 
@@ -31,7 +31,7 @@ scene.add(pointLight,ambientlight);
 
 const lighthelper = new THREE.PointLightHelper(pointLight);
 const gridHelper = new THREE.GridHelper(200,50);
-scene.add(lighthelper,gridHelper); //no gridhelper
+// scene.add(lighthelper,gridHelper); //no gridhelper
 
 
 
@@ -70,10 +70,10 @@ planet.rotation.z = 41;
 function moveCamera() {
    const t = document.body.getBoundingClientRect().top;
 
-  camera.position.z = t * -0.01;
-  camera.position.x = t * -0.0002;
-  camera.position.y = t * -0.0002;
-   
+  camera.position.z = t * -0.012;
+  camera.position.x = t * -0.0003;
+  camera.position.y = t * -0.0003;
+  // alert(t);
 }
 const dodecahedronGeometry = new THREE.DodecahedronGeometry(5,0);
 const dodecahedronMaterial = new THREE.MeshDistanceMaterial();
@@ -81,15 +81,17 @@ dodecahedronMaterial.wireframe = false;
 
 
 const dodecahedron = new THREE.Mesh(dodecahedronGeometry, dodecahedronMaterial);
-const geometry = new THREE.TorusGeometry(10,3,16,100);
-const torus = new THREE.Mesh(geometry, material);
+//const geometry = new THREE.TorusGeometry(10,3,16,100);
+//const torus = new THREE.Mesh(geometry, material);
 
 var orbit = new THREE.Group();
 orbit.add(planet);
 dodecahedron.rotation.z = 1;
+dodecahedron.position.z = -15;
+dodecahedron.position.y = -4;
+dodecahedron.position.x = 7;
 
-
-orbit.add(torus);
+orbit.add(dodecahedron);
 orbit.add(camera);
 scene.add(orbit);
 
@@ -98,17 +100,21 @@ document.body.onscroll= moveCamera;
 function animate(){
   requestAnimationFrame(animate);
 
-  
+  /*
   torus.rotation.x += 0.01;
   torus.rotation.y += 0.005;
   torus.rotation.z += 0.01;
-  
+  */
 
+  // dodecahedron.rotation.x += 0.01;
+  dodecahedron.rotation.y += 0.005;
+  // dodecahedron.rotation.z += 0.01;
+  
   orbit.rotation.y += 0.005;
 
   planet.rotation.y += 0.040;
   
-
+  
   renderer.render(scene, camera);
 }
 

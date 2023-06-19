@@ -13,7 +13,7 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(30);
+
 
 renderer.render(scene, camera);
 
@@ -83,7 +83,7 @@ function moveCamera() {
 // const dodecahedron = new THREE.Mesh(dodecahedronGeometry, dodecahedronMaterial);
 const geometry = new THREE.TorusGeometry(10,3,16,100);
 const torus = new THREE.Mesh(geometry, material);
-
+torus.position.setZ(-20);
 // var orbit = new THREE.Group();
 // orbit.add(torus);
 // dodecahedron.rotation.z = 1;

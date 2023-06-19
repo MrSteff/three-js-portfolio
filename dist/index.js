@@ -1,6 +1,6 @@
 import './style.css'
-import * as THREE from 'three';
-import { AmbientLight, Material } from 'three';
+import * as THREE from 'https://unpkg.com/three/build/three.module.js';
+import { AmbientLight, Material } from 'https://unpkg.com/three/build/three.module.js';
 // import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
 const scene = new THREE.Scene();

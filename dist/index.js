@@ -63,7 +63,7 @@ planet.position.z=35;
 planet.position.x=-5;
 planet.rotation.z = 41;
 
-// scene.add(planet);
+scene.add(planet);
 
 //const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -75,23 +75,28 @@ function moveCamera() {
   camera.position.y = t * -0.0003;
   // alert(t);
 }
-const dodecahedronGeometry = new THREE.DodecahedronGeometry(5,0);
-const dodecahedronMaterial = new THREE.MeshDistanceMaterial();
-dodecahedronMaterial.wireframe = false;
+// const dodecahedronGeometry = new THREE.DodecahedronGeometry(5,0);
+// const dodecahedronMaterial = new THREE.MeshDistanceMaterial();
+// dodecahedronMaterial.wireframe = false;
 
 
-const dodecahedron = new THREE.Mesh(dodecahedronGeometry, dodecahedronMaterial);
-//const geometry = new THREE.TorusGeometry(10,3,16,100);
-//const torus = new THREE.Mesh(geometry, material);
+// const dodecahedron = new THREE.Mesh(dodecahedronGeometry, dodecahedronMaterial);
+const geometry = new THREE.TorusGeometry(10,3,16,100);
+const torus = new THREE.Mesh(geometry, material);
+
+// var orbit = new THREE.Group();
+// orbit.add(torus);
+// dodecahedron.rotation.z = 1;
+// dodecahedron.position.z = -15;
+// dodecahedron.position.y = -4;
+// dodecahedron.position.x = 7;
 
 var orbit = new THREE.Group();
 orbit.add(planet);
-dodecahedron.rotation.z = 1;
-dodecahedron.position.z = -15;
-dodecahedron.position.y = -4;
-dodecahedron.position.x = 7;
+// dodecahedron.rotation.z = 1;
 
-orbit.add(dodecahedron);
+
+orbit.add(torus);
 orbit.add(camera);
 scene.add(orbit);
 
@@ -100,14 +105,14 @@ document.body.onscroll= moveCamera;
 function animate(){
   requestAnimationFrame(animate);
 
-  /*
+  
   torus.rotation.x += 0.01;
   torus.rotation.y += 0.005;
   torus.rotation.z += 0.01;
-  */
+  
 
   // dodecahedron.rotation.x += 0.01;
-  dodecahedron.rotation.y += 0.005;
+  // dodecahedron.rotation.y += 0.005;
   // dodecahedron.rotation.z += 0.01;
   
   orbit.rotation.y += 0.005;
